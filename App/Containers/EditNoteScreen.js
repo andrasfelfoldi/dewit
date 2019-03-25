@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
-import { ScrollView, Image, View, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, View, TextInput, Image, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { Images } from '../Themes'
-
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
-import styles from './Styles/MainScreenStyle'
-import ToDoItem from '../Components/ToDoItem';
-import NewItemButton from '../Components/NewItemButton';
+import styles from './Styles/EditNoteScreenStyle'
 
-class MainScreen extends Component {
+class EditNoteScreen extends Component {
   render () {
     return (
+
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
-          <ToDoItem onPress={() => this.props.navigation.navigate('EditNoteScreen')}/>
+          <KeyboardAvoidingView behavior='position' style={styles.card}>
+            <TextInput style={styles.title}>Title</TextInput>
+            <TextInput style={styles.textContent} multiline={true}>Lorem ipsum</TextInput>
+          </KeyboardAvoidingView>
         </ScrollView>
-        <NewItemButton onPress={() => this.props.navigation.navigate('EditNoteScreen')}/>
       </View>
     )
   }
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(EditNoteScreen)

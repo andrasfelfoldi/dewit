@@ -1,4 +1,5 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation'
+import EditNoteScreen from '../Containers/EditNoteScreen'
 import MainScreen from '../Containers/MainScreen'
 import LaunchScreen from '../Containers/LaunchScreen'
 
@@ -6,6 +7,7 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
+  EditNoteScreen: { screen: EditNoteScreen },
   MainScreen: { screen: MainScreen },
   LaunchScreen: { screen: LaunchScreen }
 }, {
