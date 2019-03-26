@@ -1,34 +1,28 @@
 import { StyleSheet } from 'react-native'
-import { Metrics, ApplicationStyles, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
+
   container: {
     marginTop: Metrics.navBarHeight,
-    paddingBottom: Metrics.baseMargin,
-    padding: Metrics.marginHorizontal,
+    // paddingBottom: Metrics.navBarHeight,
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight - 2 * Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight - 2 * Metrics.navBarHeight,
+    flex: 1,
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    backgroundColor: Colors.panther
   },
 
-  logo: {
-    marginTop: Metrics.doubleSection,
-    height: Metrics.images.logo,
-    width: Metrics.images.logo,
-    resizeMode: 'contain'
+  row: {
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    backgroundColor: Colors.steel
   },
 
-  centered: {
-    alignItems: 'center'
-  },
-
-  card: {
-    width: Metrics.width - 2 * Metrics.marginHorizontal,
-    margin: Metrics.baseMargin,
-    height: 200,
-    backgroundColor: Colors.fire,
-    borderRadius: 10,
-    shadowOpacity: 0.75,
-    shadowRadius: 5,
-    shadowColor: Colors.fire,
-    shadowOffset: { height: 0, width: 0 },
-  }
 })

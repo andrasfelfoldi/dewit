@@ -1,28 +1,34 @@
 import React, { Component } from 'react'
-import { ScrollView, Image, View, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native'
+import { View, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
-import { Images } from '../Themes'
-import NoteActionCreators from "../Redux/NoteRedux";
-
+import { Colors } from '../Themes'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
 import styles from './Styles/MainScreenStyle'
-import ToDoItem from '../Components/ToDoItem';
-import NewItemButton from '../Components/NewItemButton';
+import MatrixCard from '../Components/MatrixCard';
 
 class MainScreen extends Component {
   render () {
     return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          {this.props.notes.map((note, i) => 
-            <ToDoItem title={note.title} content={note.content} onPress={() => this.props.navigation.navigate('EditNoteScreen')} key={i} />)}
-        </ScrollView>
-        <NewItemButton onPress={() => this.props.saveNote()}/>
-        {/* <NewItemButton onPress={() => this.props.navigation.navigate('EditNoteScreen')}/> */}
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <MatrixCard title="Do"
+            backgroundColor={Colors.fire}
+            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+          <MatrixCard title="Schedule"
+            backgroundColor={Colors.frost}
+            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+        </View>
+        <View style={styles.row}>
+          <MatrixCard title="Delegate"
+            backgroundColor={Colors.bloodOrange}
+            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+          <MatrixCard title="Eliminate"
+            backgroundColor={Colors.panther}
+            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+        </View>
       </View>
     )
   }
@@ -30,13 +36,11 @@ class MainScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes.notes,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveNote: () => dispatch(NoteActionCreators.saveNote({title: 'asd', content: 'kek'}))
   }
 }
 
