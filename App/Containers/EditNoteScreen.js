@@ -14,12 +14,12 @@ class EditNoteScreen extends Component {
 
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <KeyboardAvoidingView behavior='position' style={styles.card}>
+        <View style={styles.container}>
+          <KeyboardAvoidingView behavior="height" enabled style={styles.card}>
             <TextInput style={styles.title}>Title</TextInput>
             <TextInput style={styles.textContent} multiline={true}>Lorem ipsum</TextInput>
           </KeyboardAvoidingView>
-        </ScrollView>
+        </View>
       </View>
     )
   }

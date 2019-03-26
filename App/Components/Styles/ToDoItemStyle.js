@@ -5,7 +5,6 @@ export default StyleSheet.create({
   card: {
     width: Metrics.width - 2 * Metrics.marginHorizontal,
     margin: Metrics.baseMargin,
-    height: 200,
     backgroundColor: Colors.fire,
     borderRadius: 10,
     shadowOpacity: 0.75,

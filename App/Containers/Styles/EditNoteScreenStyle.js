@@ -23,5 +23,6 @@ export default StyleSheet.create({
 
   textContent: {
     fontSize: 15,
+    paddingBottom: Metrics.baseMargin,
   },
 })

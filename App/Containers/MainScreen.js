@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, Image, View, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { Images } from '../Themes'
+import NoteActionCreators from "../Redux/NoteRedux";
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -19,7 +20,8 @@ class MainScreen extends Component {
         <ScrollView style={styles.container}>
           <ToDoItem onPress={() => this.props.navigation.navigate('EditNoteScreen')}/>
         </ScrollView>
-        <NewItemButton onPress={() => this.props.navigation.navigate('EditNoteScreen')}/>
+        <NewItemButton onPress={() => this.props.saveNote()}/>
+        {/* <NewItemButton onPress={() => this.props.navigation.navigate('EditNoteScreen')}/> */}
       </View>
     )
   }
@@ -32,6 +34,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveNote: () => dispatch(NoteActionCreators.saveNote({title: 'asd', content: 'kek'}))
   }
 }
 
