@@ -18,8 +18,8 @@ export default class ToDoItem extends Component {
   render () {
     return (
       <TouchableOpacity style={styles.card} onPress={this.props.onPress}>
-        <Text style={styles.title}>Title</Text>
-        <Text style={styles.textContent}>Lorem ipsum</Text>
+        <Text style={styles.title}>{this.props.title}</Text>
+        <Text style={styles.textContent}>{this.props.content}</Text>
       </TouchableOpacity>
     )
   }

@@ -18,7 +18,8 @@ class MainScreen extends Component {
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
-          <ToDoItem onPress={() => this.props.navigation.navigate('EditNoteScreen')}/>
+          {this.props.notes.map((note, i) => 
+            <ToDoItem title={note.title} content={note.content} onPress={() => this.props.navigation.navigate('EditNoteScreen')} key={i} />)}
         </ScrollView>
         <NewItemButton onPress={() => this.props.saveNote()}/>
         {/* <NewItemButton onPress={() => this.props.navigation.navigate('EditNoteScreen')}/> */}
@@ -29,6 +30,7 @@ class MainScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    notes: state.notes.notes,
   }
 }
 
