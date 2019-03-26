@@ -4,7 +4,12 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  saveNote: ['noteData'],
+  saveDo: ['data'],
+  saveSchedule: ['data'],
+  saveDelegate: ['data'],
+  saveDont: ['data'],
+
+  purge: [],
 })
 
 export const NoteTypes = Types
@@ -13,7 +18,10 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  notes: [],
+  dos: [],
+  schedules: [],
+  delegates: [],
+  donts: [],
 })
 
 /* ------------- Selectors ------------- */
@@ -24,14 +32,25 @@ export const NoteSelectors = {
 
 /* ------------- Reducers ------------- */
 
-export const saveNote = (state, { noteData }) => {
-  let notes = state.notes === null ? [] : state.notes.slice();
-  notes.push(noteData);
-  return state.merge({ notes });
+export const saveDo = (state, { data }) => state.merge({ dos: state.dos.concat(data) });
+
+export const saveSchedule = (state, { data }) => state.merge({ schedules: state.schedules.concat(data) });
+
+export const saveDelegate = (state, { data }) => state.merge({ delegates: state.delegates.concat(data) });
+
+export const saveDont = (state, { data }) => state.merge({ donts: state.donts.concat(data) });
+
+export const purge = (state, {}) => {
+  return state.merge({ ...INITIAL_STATE });
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SAVE_NOTE]: saveNote,
+  [Types.SAVE_DO]: saveDo,
+  [Types.SAVE_SCHEDULE]: saveSchedule,
+  [Types.SAVE_DELEGATE]: saveDelegate,
+  [Types.SAVE_DONT]: saveDont,
+
+  [Types.PURGE]: purge,
 })

@@ -18,10 +18,10 @@ class NotesScreen extends Component {
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
-          {this.props.notes.map((note, i) => 
-            <ToDoItem title={note.title} content={note.content} onPress={() => this.props.navigation.navigate('EditNoteScreen')} key={i} />)}
+          {this.props.dos.map((doNote, i) => 
+            <ToDoItem title={doNote.title} content={doNote.content} onPress={() => this.props.navigation.navigate('EditNoteScreen')} key={i} />)}
         </ScrollView>
-        <NewItemButton onPress={() => this.props.saveNote()}/>
+        <NewItemButton onPress={() => this.props.saveDo()}/>
       </View>
     )
   }
@@ -29,13 +29,13 @@ class NotesScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes.notes,
+    dos: state.notes.dos,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveNote: () => dispatch(NoteActionCreators.saveNote({title: 'asd', content: 'kek'}))
+    saveDo: () => dispatch(NoteActionCreators.saveDo({title: 'asd', content: 'kek'}))
   }
 }
 
