@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
+import { Colors } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
 
 export default class DoCard extends Component {
@@ -17,10 +18,14 @@ export default class DoCard extends Component {
 
   render () {
     return (
-      <TouchableOpacity style={{...styles.card, backgroundColor: this.props.backgroundColor}} onPress={this.props.onPress}>
-        <Text style={styles.title}>{this.props.title}</Text>
-      
-      </TouchableOpacity>
+      <View onPress={this.props.onPress}
+        style={{...styles.card, backgroundColor: this.props.leftTitle === 'Do' ? Colors.lightGreen : Colors.lightOrange}}>
+        <View style={{...styles.titleBar, backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange}}>
+          <Text >{this.props.leftTitle}</Text>
+        </View>
+        <TouchableOpacity style={{...styles.rightTab, backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange}}/>
+
+      </View>
     )
   }
 }
