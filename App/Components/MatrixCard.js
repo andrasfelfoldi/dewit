@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { TouchableOpacity, Text, View, Animated, TextInput, ScrollView } from 'react-native'
 import { Colors, Metrics } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
+import LeftCard from './LeftCard';
 
 export default class MatrixCard extends Component {
 
@@ -45,13 +46,16 @@ export default class MatrixCard extends Component {
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}>
 
 
-        {/* Left */}
+        {/* =========================
+                    Left
+          ========================= */}
 
-        <ScrollView style={{...styles.leftCard,
+        {/* <ScrollView style={{...styles.leftCard,
               backgroundColor: this.props.leftTitle === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
             <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
 
-        </ScrollView>
+        </ScrollView> */}
+        <LeftCard title={this.props.leftTitle} />
 
         <View style={{...styles.leftTitleBar,
               backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
@@ -62,7 +66,9 @@ export default class MatrixCard extends Component {
           style={{...styles.leftTab,
           backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}/>
 
-        {/* Right */}
+        {/* =========================
+                    Right
+          ========================= */}
 
         <ScrollView style={{...styles.rightCard,
               backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.lightBlue : Colors.lightRed }}>
