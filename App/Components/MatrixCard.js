@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, View } from 'react-native'
-import { Colors } from '../Themes'
+import { TouchableOpacity, Text, View, Animated, TextInput, ScrollView } from 'react-native'
+import { Colors, Metrics } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
 
-export default class DoCard extends Component {
+export default class MatrixCard extends Component {
+
+  state={
+    progress: new Animated.Value(0),
+  }
+
+  cardTranslateX = this.state.progress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, -Metrics.screenWidth],
+  });
+
+  isLeftShown = true;
+
   // // Prop type warnings
   // static propTypes = {
   //   someProperty: PropTypes.object,
@@ -16,16 +28,58 @@ export default class DoCard extends Component {
   //   someSetting: false
   // }
 
+  animate = () => {
+
+    Animated.timing(this.state.progress, {
+      toValue: this.isLeftShown ? 1 : 0,
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+
+    this.isLeftShown = ! this.isLeftShown;
+  }
+
   render () {
     return (
-      <View onPress={this.props.onPress}
-        style={{...styles.card, backgroundColor: this.props.leftTitle === 'Do' ? Colors.lightGreen : Colors.lightOrange}}>
-        <View style={{...styles.titleBar, backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange}}>
+      <Animated.View onPress={this.props.onPress}
+        style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}>
+
+
+        {/* Left */}
+
+        <ScrollView style={{...styles.leftCard,
+              backgroundColor: this.props.leftTitle === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
+            <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
+
+        </ScrollView>
+
+        <View style={{...styles.leftTitleBar,
+              backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
           <Text >{this.props.leftTitle}</Text>
         </View>
-        <TouchableOpacity style={{...styles.rightTab, backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange}}/>
 
-      </View>
+        <TouchableOpacity onPress={this.animate}
+          style={{...styles.leftTab,
+          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}/>
+
+        {/* Right */}
+
+        <ScrollView style={{...styles.rightCard,
+              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.lightBlue : Colors.lightRed }}>
+            <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
+        </ScrollView>
+        
+
+        <View style={{...styles.rightTitleBar,
+              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
+          <Text >{this.props.rightTitle}</Text>
+        </View>
+
+        <TouchableOpacity onPress={this.animate}
+          style={{...styles.rightTab,
+          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}/>
+
+      </Animated.View>
     )
   }
 }

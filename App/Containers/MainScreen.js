@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, KeyboardAvoidingView } from 'react-native'
+import { View, Text, KeyboardAvoidingView, Keyboard, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { Colors } from '../Themes'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -10,9 +10,29 @@ import styles from './Styles/MainScreenStyle'
 import MatrixCard from '../Components/MatrixCard';
 
 class MainScreen extends Component {
+
+  state = {
+    keyboardAvoidingViewKey: 'keyboardAvoidingViewKey',
+  }
+
+  keyboardHideListener() {
+    this.setState({
+        keyboardAvoidingViewKey: 'keyboardAvoidingViewKey' + new Date().getTime()
+    });
+}
+
+  componentDidMount() {
+    // using keyboardWillHide is better but it does not work for android
+    this.keyboardHideListener = Keyboard.addListener(Platform.OS === 'android' ? 'keyboardDidHide': 'keyboardWillHide', this.keyboardHideListener.bind(this));
+  }
+
+  componentWillUnmount() {
+      this.keyboardHideListener.remove()
+  }
+
   render () {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior='height' style={styles.container} key={this.state.keyboardAvoidingViewKey}>
         <View style={styles.row}>
           <MatrixCard leftTitle="Do" rightTitle="Schedule"
             onPress={() => this.props.navigation.navigate('NotesScreen')}/>
@@ -27,7 +47,7 @@ class MainScreen extends Component {
             backgroundColor={Colors.panther}
             onPress={() => this.props.navigation.navigate('NotesScreen')}/> */}
         </View>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
