@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { Metrics, Colors, BaseStyleProps } from '../../Themes'
 
 export default StyleSheet.create({
-  leftCard: {
+  rightCard: {
     width: Metrics.screenWidth,
     height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
     flex: 1,
@@ -11,13 +11,7 @@ export default StyleSheet.create({
     // justifyContent: 'center',
     position: 'absolute',
     top: 0,
-    left: 0,
-    padding: Metrics.baseMargin + 30,
-    paddingLeft: Metrics.baseMargin,
-    paddingBottom: Metrics.baseMargin,
+    left: Metrics.screenWidth,
+    padding: 30,
   },
-
-  scrollView: {
-    height: Metrics.screenHeight / 2 - Metrics.navBarHeight, 
-  }
 })

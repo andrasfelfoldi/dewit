@@ -36,16 +36,10 @@ class MainScreen extends Component {
         <View style={styles.row}>
           <MatrixCard leftTitle="Do" rightTitle="Schedule"
             onPress={() => this.props.navigation.navigate('NotesScreen')}/>
-          {/* <MatrixCard title="Schedule"
-            backgroundColor={Colors.frost}
-            onPress={() => this.props.navigation.navigate('NotesScreen')}/> */}
         </View>
         <View style={styles.row}>
           <MatrixCard leftTitle="Delegate" rightTitle="Eliminate"
             onPress={() => this.props.navigation.navigate('NotesScreen')}/>
-          {/* <MatrixCard title="Eliminate"
-            backgroundColor={Colors.panther}
-            onPress={() => this.props.navigation.navigate('NotesScreen')}/> */}
         </View>
       </KeyboardAvoidingView>
     )

@@ -9,33 +9,6 @@ export default StyleSheet.create({
     flexShrink: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.lightGreen,
-  },
-
-  leftCard: {
-    width: Metrics.screenWidth,
-    height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
-    flex: 1,
-    flexShrink: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    padding: 30,
-  },
-
-  rightCard: {
-    width: Metrics.screenWidth,
-    height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
-    flex: 1,
-    flexShrink: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    left: Metrics.screenWidth,
-    padding: 30,
   },
 
   leftTab: {

@@ -4,6 +4,7 @@ import { TouchableOpacity, Text, View, Animated, TextInput, ScrollView } from 'r
 import { Colors, Metrics } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
 import LeftCard from './LeftCard';
+import RightCard from './RightCard';
 
 export default class MatrixCard extends Component {
 
@@ -50,11 +51,6 @@ export default class MatrixCard extends Component {
                     Left
           ========================= */}
 
-        {/* <ScrollView style={{...styles.leftCard,
-              backgroundColor: this.props.leftTitle === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
-            <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
-
-        </ScrollView> */}
         <LeftCard title={this.props.leftTitle} />
 
         <View style={{...styles.leftTitleBar,
@@ -69,12 +65,8 @@ export default class MatrixCard extends Component {
         {/* =========================
                     Right
           ========================= */}
-
-        <ScrollView style={{...styles.rightCard,
-              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.lightBlue : Colors.lightRed }}>
-            <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
-        </ScrollView>
         
+        <RightCard title={this.props.rightTitle} />
 
         <View style={{...styles.rightTitleBar,
               backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>

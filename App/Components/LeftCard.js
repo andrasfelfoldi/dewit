@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { ScrollView, TextInput } from 'react-native'
 import styles from './Styles/LeftCardStyle'
 import { Colors, Metrics } from '../Themes'
+import { View } from 'react-native-animatable';
 
 export default class LeftCard extends Component {
   // // Prop type warnings
@@ -18,11 +19,38 @@ export default class LeftCard extends Component {
 
   render () {
     return (
-      <ScrollView style={{...styles.leftCard,
+      <View style={{...styles.leftCard,
         backgroundColor: this.props.title === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
-        <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
+        <ScrollView style={styles.scrollView}>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
+          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
 
-      </ScrollView>
+        </ScrollView>
+      </View>
     )
   }
 }
