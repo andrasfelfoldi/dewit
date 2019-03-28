@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, View, Animated, TextInput, ScrollView } from 'react-native'
+import { TouchableOpacity, Text, View, Animated, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { Colors, Metrics } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
 import LeftCard from './LeftCard';
@@ -42,7 +42,17 @@ export default class MatrixCard extends Component {
   }
 
   render () {
+
+    let decorPositionProp = {};
+
+    if(this.props.leftTitle === 'Do'){
+      decorPositionProp["top"] = -Metrics.navBarHeight;
+    }else{
+      decorPositionProp["bottom"] = -Metrics.navBarHeight;
+    }
+
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <Animated.View onPress={this.props.onPress}
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}>
 
@@ -60,7 +70,14 @@ export default class MatrixCard extends Component {
 
         <TouchableOpacity onPress={this.animate}
           style={{...styles.leftTab,
-          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}/>
+          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
+          
+        </TouchableOpacity>
+
+        <View style={{...styles.leftDecor,
+              backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange,
+              height: Metrics.navBarHeight,
+              ...decorPositionProp }} />
 
         {/* =========================
                     Right
@@ -75,9 +92,16 @@ export default class MatrixCard extends Component {
 
         <TouchableOpacity onPress={this.animate}
           style={{...styles.rightTab,
-          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}/>
+          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
+        </TouchableOpacity>
+
+        <View style={{...styles.rightDecor,
+              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red,
+              height: Metrics.navBarHeight,
+              ...decorPositionProp }} />
 
       </Animated.View>
+      </TouchableWithoutFeedback>
     )
   }
 }

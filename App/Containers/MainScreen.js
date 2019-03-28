@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, KeyboardAvoidingView, Keyboard, Platform } from 'react-native'
+import { TouchableWithoutFeedback, Text, KeyboardAvoidingView, Keyboard, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { Colors } from '../Themes'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -32,16 +32,16 @@ class MainScreen extends Component {
 
   render () {
     return (
-      <KeyboardAvoidingView behavior='height' style={styles.container} key={this.state.keyboardAvoidingViewKey}>
-        <View style={styles.row}>
-          <MatrixCard leftTitle="Do" rightTitle="Schedule"
-            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
-        </View>
-        <View style={styles.row}>
-          <MatrixCard leftTitle="Delegate" rightTitle="Eliminate"
-            onPress={() => this.props.navigation.navigate('NotesScreen')}/>
-        </View>
-      </KeyboardAvoidingView>
+        <KeyboardAvoidingView behavior='padding' style={styles.container} key={this.state.keyboardAvoidingViewKey}>
+          {/* <View style={styles.row}> */}
+            <MatrixCard leftTitle="Do" rightTitle="Schedule"
+              onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+          {/* </View> */}
+          {/* <View style={styles.row}> */}
+            <MatrixCard leftTitle="Delegate" rightTitle="Eliminate"
+              onPress={() => this.props.navigation.navigate('NotesScreen')}/>
+          {/* </View> */}
+        </KeyboardAvoidingView>
     )
   }
 }

@@ -18,8 +18,10 @@ export default StyleSheet.create({
 
   row: {
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight,
+    // height: Metrics.screenHeight,
+    maxHeight: (Metrics.screenHeight - 2 * Metrics.navBarHeight) / 2,
     flex: 1,
+    flexShrink: 1,
     flexDirection: 'row',
     flexWrap: 'nowrap',
     backgroundColor: Colors.steel
