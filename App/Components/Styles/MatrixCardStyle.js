@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     width: Metrics.screenWidth * 2,
     // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
-    maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight / 2,
     flex: 1,
     flexShrink: 1,
     alignItems: 'center',
@@ -16,6 +16,7 @@ export default StyleSheet.create({
     ...BaseStyleProps.shadow,
     // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
     maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight / 2,
     width: 30,
     position: 'absolute',
     top: 0,
@@ -28,7 +29,8 @@ export default StyleSheet.create({
   rightTab: {
     ...BaseStyleProps.shadow,
     // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
-    maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    // maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight / 2,
     width: 30,
     position: 'absolute',
     top: 0,

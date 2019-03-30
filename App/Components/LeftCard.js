@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { ScrollView, TextInput } from 'react-native'
+import { ScrollView, TextInput, View, CheckBox } from 'react-native'
 import styles from './Styles/LeftCardStyle'
 import { Colors, Metrics } from '../Themes'
-import { View } from 'react-native-animatable';
+import ToDoEntry from './ToDoEntry';
+// import { View } from 'react-native-animatable';
+
 
 export default class LeftCard extends Component {
   // // Prop type warnings
@@ -21,33 +23,25 @@ export default class LeftCard extends Component {
     return (
       <View style={{...styles.leftCard,
         backgroundColor: this.props.title === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
-        <ScrollView style={styles.scrollView}>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#FFFFFF', marginBottom: 5}}></TextInput>
-          <TextInput multiline={true} style={{ width: 300, backgroundColor: '#000000', marginBottom: 5}}></TextInput>
+        <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
+
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
+          <ToDoEntry />
 
         </ScrollView>
       </View>

@@ -5,11 +5,15 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
 
   container: {
-    marginTop: Metrics.navBarHeight,
+    marginTop: 0,
+    // marginTop: Metrics.navBarHeight,
     // paddingBottom: Metrics.navBarHeight,
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight - 2 * Metrics.navBarHeight,
-    maxHeight: Metrics.screenHeight - 2 * Metrics.navBarHeight,
+    // height: Metrics.screenHeight - 2 * Metrics.navBarHeight,
+    // height: Metrics.screenHeight - Metrics.navBarHeight,
+    // maxHeight: Metrics.screenHeight - 2 * Metrics.navBarHeight,
+    height: Metrics.screenHeight,
+    maxHeight: Metrics.screenHeight,
     flex: 1,
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -19,7 +23,8 @@ export default StyleSheet.create({
   row: {
     width: Metrics.screenWidth,
     // height: Metrics.screenHeight,
-    maxHeight: (Metrics.screenHeight - 2 * Metrics.navBarHeight) / 2,
+    // maxHeight: (Metrics.screenHeight - 2 * Metrics.navBarHeight) / 2,
+    maxHeight: Metrics.screenHeight,
     flex: 1,
     flexShrink: 1,
     flexDirection: 'row',

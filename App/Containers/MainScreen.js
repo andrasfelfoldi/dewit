@@ -32,7 +32,8 @@ class MainScreen extends Component {
 
   render () {
     return (
-        <KeyboardAvoidingView behavior='padding' style={styles.container} key={this.state.keyboardAvoidingViewKey}>
+        // <KeyboardAvoidingView behavior='padding' style={styles.container} key={this.state.keyboardAvoidingViewKey}>
+        <KeyboardAvoidingView style={styles.container} key={this.state.keyboardAvoidingViewKey}>
           {/* <View style={styles.row}> */}
             <MatrixCard leftTitle="Do" rightTitle="Schedule"
               onPress={() => this.props.navigation.navigate('NotesScreen')}/>

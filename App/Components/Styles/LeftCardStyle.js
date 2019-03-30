@@ -5,7 +5,8 @@ export default StyleSheet.create({
   leftCard: {
     width: Metrics.screenWidth,
     // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
-    maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    // maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight / 2,
 
     flex: 1,
     flexShrink: 1,
@@ -20,5 +21,9 @@ export default StyleSheet.create({
     paddingLeft: Metrics.baseMargin,
     paddingBottom: Metrics.baseMargin,
   },
+
+  scrollView: {
+    flex: 1,
+  }
 
 })
