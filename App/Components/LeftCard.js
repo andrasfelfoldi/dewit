@@ -19,29 +19,37 @@ export default class LeftCard extends Component {
   //   someSetting: false
   // }
 
+  primaryColor = this.props.title === 'Do' ? Colors.green : Colors.orange;
+  lightColor = this.props.title === 'Do' ? Colors.lightGreen : Colors.lightOrange;
+
   render () {
     return (
       <View style={{...styles.leftCard,
-        backgroundColor: this.props.title === 'Do' ? Colors.lightGreen : Colors.lightOrange }}>
+        backgroundColor: this.lightColor }}>
         <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
-          <ToDoEntry />
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
 
         </ScrollView>
       </View>

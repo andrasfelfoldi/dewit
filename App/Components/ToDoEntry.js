@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import { View, TextInput, Text, TouchableWithoutFeedback } from 'react-native'
 import styles from './Styles/ToDoEntryStyle'
+import { Colors } from '../Themes';
 
 export default class ToDoEntry extends Component {
   // // Prop type warnings
@@ -22,9 +23,9 @@ export default class ToDoEntry extends Component {
   render () {
     return (
         <TouchableWithoutFeedback onPress={() => this.setState({completed: !this.state.completed})}>
-          <View style={{width: 300, margin: 2}}>
+          <View style={{...styles.container, borderBottomColor: this.props.color}}>
             <Text editable={false} multiline={true}
-                  style={{ width: 300, backgroundColor: '#FFFFFF', textDecorationLine: this.state.completed ? 'line-through' : 'none'}}>
+                  style={{...styles.text, textDecorationLine: this.state.completed ? 'line-through' : 'none'}}>
               Sample Text
             </Text>
           </View>
