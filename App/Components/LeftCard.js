@@ -28,6 +28,7 @@ export default class LeftCard extends Component {
         backgroundColor: this.lightColor }}>
         <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
+          <TextInput ></TextInput>
           <ToDoEntry color={this.primaryColor}/>
           <ToDoEntry color={this.primaryColor}/>
           <ToDoEntry color={this.primaryColor}/>

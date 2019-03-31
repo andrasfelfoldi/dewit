@@ -69,9 +69,8 @@ export default class MatrixCard extends Component {
         </View>
 
         <TouchableOpacity onPress={this.animate}
-          style={{...styles.leftTab,
-          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
-          
+          style={{...styles.rightTab,
+          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
         </TouchableOpacity>
 
         {/* <View style={{...styles.leftDecor,
@@ -90,9 +89,13 @@ export default class MatrixCard extends Component {
           <Text >{this.props.rightTitle}</Text>
         </View>
 
+        
+
+
         <TouchableOpacity onPress={this.animate}
-          style={{...styles.rightTab,
-          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
+          style={{...styles.leftTab,
+          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
+          
         </TouchableOpacity>
 
         {/* <View style={{...styles.rightDecor,
