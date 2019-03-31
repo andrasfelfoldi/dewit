@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { ScrollView, TextInput } from 'react-native'
+import { ScrollView, TextInput, View, CheckBox } from 'react-native'
 import styles from './Styles/RightCardStyle'
 import { Colors, Metrics } from '../Themes'
+import ToDoEntry from './ToDoEntry';
+// import { View } from 'react-native-animatable';
+
 
 export default class RightCard extends Component {
   // // Prop type warnings
@@ -16,12 +19,40 @@ export default class RightCard extends Component {
   //   someSetting: false
   // }
 
+  primaryColor = this.props.title === 'Schedule' ? Colors.blue : Colors.red;
+  lightColor = this.props.title === 'Schedule' ? Colors.lightBlue : Colors.lightRed;
+
   render () {
     return (
-      <ScrollView style={{...styles.rightCard,
-        backgroundColor: this.props.title === 'Schedule' ? Colors.lightBlue : Colors.lightRed }}>
-        <TextInput style={{ width: 100, backgroundColor: '#FFFFFF'}}></TextInput>
-      </ScrollView>
+      <View style={{...styles.rightCard,
+        backgroundColor: this.lightColor }}>
+        <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
+
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+          <ToDoEntry color={this.primaryColor}/>
+
+        </ScrollView>
+      </View>
     )
   }
 }

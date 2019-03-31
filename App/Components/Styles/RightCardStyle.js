@@ -4,7 +4,10 @@ import { Metrics, Colors, BaseStyleProps } from '../../Themes'
 export default StyleSheet.create({
   rightCard: {
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    // maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
+    maxHeight: Metrics.screenHeight / 2,
+
     flex: 1,
     flexShrink: 1,
     // alignItems: 'center',
@@ -12,6 +15,15 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: Metrics.screenWidth,
-    padding: 30,
+    bottom: 0,
+    right: Metrics.screenWidth,
+    padding: Metrics.baseMargin + 30,
+    paddingRight: Metrics.baseMargin,
+    paddingBottom: Metrics.baseMargin,
   },
+
+  scrollView: {
+    flex: 1,
+  }
+
 })
