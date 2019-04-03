@@ -38,37 +38,8 @@ export default class MatrixCard extends Component {
       },
       onPanResponderRelease: (evt, gestureState) => {
 
-        // this.animate();
-        // The most recent move distance is gestureState.move{X,Y}
-        // The accumulated gesture distance since becoming responder is
-        // gestureState.d{x,y}
-
         let newValue = gestureState.dx > -(Metrics.screenWidth / 2) ? 0 : -Metrics.screenWidth;
         this.isLeftSide = gestureState.dx > -(Metrics.screenWidth / 2);
-
-        // if(this.isLeftSide){
-
-        //   newValue = gestureState.dx > 0 ? 0 : -Metrics.screenWidth;
-        //   Animated.spring(
-        //     this.state.progress.x,
-        //     {
-        //       toValue: newValue,
-        //     } 
-        //   ).start(() => this.isLeftSide = false);
-
-        //   // this.isLeftSide = false;
-        // }else{
-
-        //   newValue = gestureState.dx > 0 ? 0 : -Metrics.screenWidth;
-        //   Animated.spring(
-        //     this.state.progress.x,
-        //     {
-        //       toValue: newValue,
-        //     } 
-        //   ).start(() => this.isLeftSide = true);
-
-        //   // this.isLeftSide = true;
-        // }
         
         Animated.spring(
           this.state.progress.x,
@@ -78,40 +49,24 @@ export default class MatrixCard extends Component {
         ).start();
       },
       onPanResponderMove: Animated.event([
-        null,                // raw event arg ignored
-        {dx: this.state.progress.x}],    // gestureState arg
-        
+        null,
+        {dx: this.state.progress.x}],
       ),
     });
   }
 
-  // updateCurrentProgressValue = (value) => {
-  //   this.progressValue = value.x;
+  animate = () => {
 
-  //   console.log(this.progressValue);
-  // };
+    Animated.timing(this.state.progress.x, {
+      toValue: this.isLeftSide ? -Metrics.screenWidth : 0,
+      duration: 200,
+      // useNativeDriver: true,
+    }).start();
 
-  // componentDidMount = () => {
-  //   this.updateCurrentProgressValueListenerId = this.state.progress.addListener(this.updateCurrentProgressValue.bind(this));
-  // }
-
-  // componentWillUnmount = () => {
-  //   this.state.progress.removeListener(this.updateCurrentProgressValueListenerId);
-  // }
-
-  // animate = () => {
-
-  //   Animated.timing(this.state.progress.x, {
-  //     toValue: this.isLeftShown ? 1 : 0,
-  //     duration: 200,
-  //     useNativeDriver: true,
-  //   }).start();
-
-  //   this.isLeftShown = ! this.isLeftShown;
-  // }
+    this.isLeftSide = ! this.isLeftSide;
+  }
 
   render () {
-
     return (
       <Animated.View onPress={this.props.onPress}
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}
@@ -131,10 +86,10 @@ export default class MatrixCard extends Component {
           <Text >{this.props.leftTitle}</Text>
         </View>
 
-        {/* <TouchableOpacity onPress={this.animate}
+        <TouchableOpacity onPress={this.animate}
           style={{...styles.rightTab,
           backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
 
         {/* <View style={{...styles.leftDecor,
               backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange,
@@ -155,11 +110,11 @@ export default class MatrixCard extends Component {
         
 
 
-        {/* <TouchableOpacity onPress={this.animate}
+        <TouchableOpacity onPress={this.animate}
           style={{...styles.leftTab,
           backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
           
-        </TouchableOpacity> */}
+        </TouchableOpacity>
 
         {/* <View style={{...styles.rightDecor,
               backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red,
