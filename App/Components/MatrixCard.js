@@ -45,12 +45,13 @@ export default class MatrixCard extends Component {
           this.state.progress.x,
           {
             toValue: newValue,
+            useNativeDriver: true,
           } 
         ).start();
       },
       onPanResponderMove: Animated.event([
         null,
-        {dx: this.state.progress.x}],
+        {dx: this.state.progress.x, useNativeDriver: true}],
       ),
     });
   }
@@ -60,7 +61,7 @@ export default class MatrixCard extends Component {
     Animated.timing(this.state.progress.x, {
       toValue: this.isLeftSide ? -Metrics.screenWidth : 0,
       duration: 200,
-      // useNativeDriver: true,
+      useNativeDriver: true,
     }).start();
 
     this.isLeftSide = ! this.isLeftSide;
