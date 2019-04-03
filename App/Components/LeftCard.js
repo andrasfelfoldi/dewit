@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { ScrollView, TextInput, View, CheckBox } from 'react-native'
+import { ScrollView, TextInput, View, Text } from 'react-native'
 import styles from './Styles/LeftCardStyle'
 import { Colors, Metrics } from '../Themes'
 import ToDoEntry from './ToDoEntry';
+import TitleBar from './TitleBar';
 // import { View } from 'react-native-animatable';
 
 
@@ -53,6 +54,8 @@ export default class LeftCard extends Component {
           <ToDoEntry color={this.primaryColor}/>
 
         </ScrollView>
+
+        <TitleBar color={this.primaryColor} title={this.props.title} />
       </View>
     )
   }

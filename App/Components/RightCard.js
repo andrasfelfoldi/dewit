@@ -4,6 +4,7 @@ import { ScrollView, TextInput, View, CheckBox } from 'react-native'
 import styles from './Styles/RightCardStyle'
 import { Colors, Metrics } from '../Themes'
 import ToDoEntry from './ToDoEntry';
+import TitleBar from './TitleBar';
 // import { View } from 'react-native-animatable';
 
 
@@ -52,6 +53,9 @@ export default class RightCard extends Component {
           <ToDoEntry color={this.primaryColor}/>
 
         </ScrollView>
+
+        <TitleBar color={this.primaryColor} title={this.props.title} />
+
       </View>
     )
   }

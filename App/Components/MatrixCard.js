@@ -16,7 +16,6 @@ export default class MatrixCard extends Component {
 
     }
 
-    this.isLeftShown = true;
     this.isLeftSide = true;
 
     this.cardTranslateX = this.state.progress.x.interpolate({
@@ -72,9 +71,6 @@ export default class MatrixCard extends Component {
       <Animated.View onPress={this.props.onPress}
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}
         {...this._panResponder.panHandlers}>
-      {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <React.Fragment> */}
-
 
         {/* =========================
                     Left
@@ -82,20 +78,10 @@ export default class MatrixCard extends Component {
 
         <LeftCard title={this.props.leftTitle} />
 
-        <View style={{...styles.leftTitleBar,
-              backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
-          <Text >{this.props.leftTitle}</Text>
-        </View>
-
         <TouchableOpacity onPress={this.animate}
           style={{...styles.rightTab,
           backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
         </TouchableOpacity>
-
-        {/* <View style={{...styles.leftDecor,
-              backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange,
-              height: Metrics.navBarHeight,
-              ...decorPositionProp }} /> */}
 
         {/* =========================
                     Right
@@ -103,28 +89,11 @@ export default class MatrixCard extends Component {
         
         <RightCard title={this.props.rightTitle} />
 
-        <View style={{...styles.rightTitleBar,
-              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
-          <Text >{this.props.rightTitle}</Text>
-        </View>
-
-        
-
-
         <TouchableOpacity onPress={this.animate}
           style={{...styles.leftTab,
           backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
           
         </TouchableOpacity>
-
-        {/* <View style={{...styles.rightDecor,
-              backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red,
-              height: Metrics.navBarHeight,
-              ...decorPositionProp }} /> */}
-
-{/* </React.Fragment>
-
-      </TouchableWithoutFeedback> */}
       </Animated.View>
     )
   }

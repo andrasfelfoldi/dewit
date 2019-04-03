@@ -17,9 +17,10 @@ export default StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
-    padding: Metrics.baseMargin + 30,
+    paddingTop: Metrics.baseMargin + 60,
+    paddingRight: Metrics.baseMargin + 30,
     paddingLeft: Metrics.baseMargin,
-    paddingBottom: Metrics.baseMargin,
+    paddingBottom: 0,
   },
 
   scrollView: {

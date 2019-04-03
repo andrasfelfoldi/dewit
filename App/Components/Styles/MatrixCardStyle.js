@@ -48,30 +48,6 @@ export default StyleSheet.create({
     borderBottomLeftRadius: 50,
   },
 
-  leftTitleBar: {
-    ...BaseStyleProps.shadow,
-    width: Metrics.screenWidth,
-    height: 30,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  rightTitleBar: {
-    ...BaseStyleProps.shadow,
-    width: Metrics.screenWidth,
-    height: 30,
-    position: 'absolute',
-    top: 0,
-    left: Metrics.screenWidth,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
   leftDecor: {
     ...BaseStyleProps.shadow,
     width: Metrics.screenWidth,
