@@ -5,25 +5,29 @@ import { Colors, Metrics } from '../Themes'
 import styles from './Styles/MatrixCardStyle'
 import LeftCard from './LeftCard';
 import RightCard from './RightCard';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class MatrixCard extends Component {
 
   constructor(props){
     super(props);
     
-    this.state={
-      progress: new Animated.ValueXY({ x: 0, y: 0 }),
-
-    }
+    this.state={ progress: new Animated.ValueXY({ x: 0, y: 0 }) };
 
     this.isLeftSide = true;
+    this.leftColor = props.leftTitle === 'Do' ? Colors.green : Colors.orange;
+    this.rightColor = props.leftTitle === 'Do' ? Colors.blue : Colors.red;
 
     this.cardTranslateX = this.state.progress.x.interpolate({
       inputRange: [-Metrics.screenWidth, 0],
       outputRange: [-Metrics.screenWidth, 0],
     });
 
-    
+    this.rotate = this.state.progress.x.interpolate({
+      inputRange: [-Metrics.screenWidth, 0],
+      outputRange: ['180deg', '0deg'],
+    });
+
     this._panResponder = PanResponder.create({
       // Ask to be the responder:
       onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -67,33 +71,26 @@ export default class MatrixCard extends Component {
   }
 
   render () {
+
+    let currentColor = this.isLeftSide ? this.leftColor : this.rightColor;
+
     return (
       <Animated.View onPress={this.props.onPress}
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}
         {...this._panResponder.panHandlers}>
 
-        {/* =========================
-                    Left
-          ========================= */}
-
         <LeftCard title={this.props.leftTitle} />
-
-        <TouchableOpacity onPress={this.animate}
-          style={{...styles.rightTab,
-          backgroundColor: this.props.rightTitle === 'Schedule' ? Colors.blue : Colors.red }}>
-        </TouchableOpacity>
-
-        {/* =========================
-                    Right
-          ========================= */}
         
         <RightCard title={this.props.rightTitle} />
 
         <TouchableOpacity onPress={this.animate}
-          style={{...styles.leftTab,
-          backgroundColor: this.props.leftTitle === 'Do' ? Colors.green : Colors.orange }}>
-          
+          style={{...styles.arrowTab,
+          backgroundColor: currentColor }}>
+          <Animated.View style={{transform: [{rotate: this.rotate}] }}>
+            <Icon style={styles.arrowIcon} name="chevron-left" size={30} color="#FFFFFF" />
+          </Animated.View>
         </TouchableOpacity>
+
       </Animated.View>
     )
   }

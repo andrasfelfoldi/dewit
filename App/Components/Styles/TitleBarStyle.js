@@ -10,7 +10,22 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-  }
+    justifyContent: 'space-between',
+    paddingLeft: Metrics.baseMargin,
+    paddingRight: Metrics.baseMargin,
+  },
+
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    flexShrink: 1,
+  },
+
+  button: {
+    marginLeft: 15,
+  },
+
 })

@@ -30,13 +30,13 @@ export default StyleSheet.create({
     borderBottomRightRadius: 50,
   },
 
-  rightTab: {
+  arrowTab: {
     ...BaseStyleProps.shadow,
     // height: Metrics.screenHeight / 2 - Metrics.navBarHeight,
     // maxHeight: Metrics.screenHeight / 2 - Metrics.navBarHeight,
     // maxHeight: Metrics.screenHeight / 2,
     height: 60,
-    width: 30,
+    width: 60,
     position: 'absolute',
     // top: 0,
     top: Metrics.screenHeight / 4 - 30,
@@ -44,8 +44,16 @@ export default StyleSheet.create({
     // right: 2 * Metrics.screenWidth - 30,
     left: Metrics.screenWidth - 30,
     backgroundColor: Colors.green,
-    borderTopLeftRadius: 50,
-    borderBottomLeftRadius: 50,
+    borderRadius: 50,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  arrowIcon: {
+    position: 'relative',
+    top: 0,
+    right: 14,
   },
 
   leftDecor: {
