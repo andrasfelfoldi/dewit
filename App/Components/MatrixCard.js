@@ -23,6 +23,11 @@ export default class MatrixCard extends Component {
       outputRange: [-Metrics.screenWidth, 0],
     });
 
+    this.circleScale = this.state.progress.x.interpolate({
+      inputRange: [-Metrics.screenWidth, 0],
+      outputRange: [3.1, 1],
+    });
+
     this.rotate = this.state.progress.x.interpolate({
       inputRange: [-Metrics.screenWidth, 0],
       outputRange: ['180deg', '0deg'],
@@ -71,9 +76,6 @@ export default class MatrixCard extends Component {
   }
 
   render () {
-
-    let currentColor = this.isLeftSide ? this.leftColor : this.rightColor;
-
     return (
       <Animated.View onPress={this.props.onPress}
         style={{...styles.container, transform: [{translateX: this.cardTranslateX}] }}
@@ -85,7 +87,12 @@ export default class MatrixCard extends Component {
 
         <TouchableOpacity onPress={this.animate}
           style={{...styles.arrowTab,
-          backgroundColor: currentColor }}>
+          backgroundColor: this.rightColor }}>
+
+          <Animated.View style={{...styles.secondaryColorCircle,
+            backgroundColor: this.leftColor,
+            transform: [{scale: this.circleScale}] }} />
+
           <Animated.View style={{transform: [{rotate: this.rotate}] }}>
             <Icon style={styles.arrowIcon} name="chevron-left" size={30} color="#FFFFFF" />
           </Animated.View>

@@ -40,7 +40,7 @@ export default StyleSheet.create({
     position: 'absolute',
     // top: 0,
     top: Metrics.screenHeight / 4 - 30,
-    bottom: 0,
+    // bottom: 0,
     // right: 2 * Metrics.screenWidth - 30,
     left: Metrics.screenWidth - 30,
     backgroundColor: Colors.green,
@@ -48,6 +48,18 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+  },
+
+  secondaryColorCircle: {
+    height: 60,
+    width: 60,
+    position: 'absolute',
+    // top: 0,
+    top: 0,
+    left: -60,
+    backgroundColor: Colors.green,
+    borderRadius: 50,
   },
 
   arrowIcon: {
