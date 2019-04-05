@@ -10,10 +10,36 @@ export default StyleSheet.create({
 
   inputContainer: {
     ...BaseStyleProps.shadow,
-    backgroundColor: Colors.green,
-    width: Metrics.screenWidth / 2,
+    backgroundColor: Colors.lightGreen,
+    width: Metrics.screenWidth - 2 * Metrics.baseMargin,
     height: 200,
-    borderRadius: 10,
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+
+  header: {
+    ...BaseStyleProps.shadow,
+    backgroundColor: Colors.green,
+    width: Metrics.screenWidth - 2 * Metrics.baseMargin,
+    height: 50,
+    maxHeight: 50,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingLeft: Metrics.baseMargin,
+    paddingRight: Metrics.baseMargin,
+  },
+
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    flexShrink: 1,
+  },
+
+  button: {
+    marginLeft: 15,
   },
 
 })
