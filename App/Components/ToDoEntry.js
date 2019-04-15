@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { View, TextInput, Text, TouchableWithoutFeedback } from 'react-native'
 import styles from './Styles/ToDoEntryStyle'
 import { Colors } from '../Themes';
+import { material } from 'react-native-typography'
 
 export default class ToDoEntry extends Component {
   // // Prop type warnings
@@ -16,17 +17,18 @@ export default class ToDoEntry extends Component {
   //   someSetting: false
   // }
 
-  state = {
-    completed: false,
-  }
+  // state = {
+  //   completed: false,
+  // }
 
   render () {
     return (
-        <TouchableWithoutFeedback onPress={() => this.setState({completed: !this.state.completed})}>
+        <TouchableWithoutFeedback onPress={this.props.onPress}>
+        {/* <TouchableWithoutFeedback onPress={() => this.setState({completed: !this.state.completed})}> */}
           <View style={{...styles.container, borderBottomColor: this.props.color}}>
             <Text editable={false} multiline={true}
-                  style={{...styles.text, textDecorationLine: this.state.completed ? 'line-through' : 'none'}}>
-              Sample Text
+                  style={{...styles.text, ...material.subheading, textDecorationLine: this.props.completed ? 'line-through' : 'none'}}>
+              {this.props.text}
             </Text>
           </View>
         </TouchableWithoutFeedback>

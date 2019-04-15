@@ -54,7 +54,7 @@ export default class RightCard extends Component {
 
         </ScrollView>
 
-        <TitleBar color={this.primaryColor} title={this.props.title} />
+        <TitleBar primaryColor={this.primaryColor} lightColor={this.lightColor} title={this.props.title} />
 
       </View>
     )

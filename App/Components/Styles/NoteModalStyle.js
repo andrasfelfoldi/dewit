@@ -10,7 +10,6 @@ export default StyleSheet.create({
 
   inputContainer: {
     ...BaseStyleProps.shadow,
-    backgroundColor: Colors.lightGreen,
     width: Metrics.screenWidth - 2 * Metrics.baseMargin,
     height: 200,
     borderRadius: 5,
@@ -19,7 +18,6 @@ export default StyleSheet.create({
 
   header: {
     ...BaseStyleProps.shadow,
-    backgroundColor: Colors.green,
     width: Metrics.screenWidth - 2 * Metrics.baseMargin,
     height: 50,
     maxHeight: 50,
