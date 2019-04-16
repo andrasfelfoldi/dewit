@@ -28,7 +28,7 @@ class NoteModal extends Component {
   title=`New task to ${this.props.title}`;
 
   saveItem = () => {
-    this.props.saveDo({text: this.state.text, isMarkedDone: false});
+    this.props.saveNote({text: this.state.text, isMarkedDone: false});
     this.setState({text: ''});
     this.props.closeAction();
   }

@@ -29,36 +29,21 @@ class LeftCard extends Component {
     this.props.markDo(index);
   }
 
+  markDelegate = (index) => {
+    this.props.markDelegate(index);
+  }
+
+  markNote = this.props.title === 'Do' ? this.markDo : this.markDelegate;
+
   render () {
     return (
       <View style={{...styles.leftCard,
         backgroundColor: this.lightColor }}>
         <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
-          {this.props.dos.map((doObject, index) => <ToDoEntry key={index} completed={doObject.isMarkedDone} text={doObject.text} onPress={() => this.markDo(index)} color={this.primaryColor}/>)}
-          
-          {/* <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/>
-          <ToDoEntry color={this.primaryColor}/> */}
+          {this.props.notes.map((note, index) => 
+            <ToDoEntry key={index} completed={note.isMarkedDone}
+              text={note.text} onPress={() => this.markNote(index)} color={this.primaryColor}/>)}
 
         </ScrollView>
 
@@ -68,15 +53,16 @@ class LeftCard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    dos: state.notes.dos,
+    notes: ownProps.title === 'Do' ? state.notes.dos : state.notes.delegates,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     markDo: (index) => dispatch(NoteActions.markDo(index)),
+    markDelegate: (index) => dispatch(NoteActions.markDelegate(index)),
   }
 }
 

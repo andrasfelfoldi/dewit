@@ -10,9 +10,41 @@ import NoteActions from "../Redux/NoteRedux";
 
 class TitleBar extends Component {
 
-  state={
-    isAddNoteVisible: false,
+  constructor(props){
+    super(props);
+
+    this.state={
+      isAddNoteVisible: false,
+    };
+
+    switch (props.title) {
+      case 'Do':
+        this.saveNote = props.saveDo;
+        this.deleteMarkedNotes = props.deleteMarkedDos;
+        break;
+    
+      case 'Delegate':
+        this.saveNote = props.saveDelegate;
+        this.deleteMarkedNotes = props.deleteMarkedDelegates;
+        break;
+    
+      case 'Schedule':
+        this.saveNote = props.saveSchedule;
+        this.deleteMarkedNotes = props.deleteMarkedSchedules;
+        break;
+    
+      case 'Eliminate':
+        this.saveNote = props.saveEliminate;
+        this.deleteMarkedNotes = props.deleteMarkedEliminates;
+        break;
+    
+      default:
+        this.saveNote = null;
+        this.deleteMarkedNotes = null;
+        break;
+    }
   }
+
 
   // // Prop type warnings
   // static propTypes = {
@@ -32,7 +64,7 @@ class TitleBar extends Component {
   closeAddNoteModal = () => {
     this.setState({isAddNoteVisible: false});
   }
-
+  
   render () {
     return (
       <View style={{...styles.titleBar,
@@ -43,10 +75,11 @@ class TitleBar extends Component {
             <View style={styles.button}>
               <Icon name="note-add" size={30} color="#FFFFFF" />
               <NoteModal visible={this.state.isAddNoteVisible} closeAction={this.closeAddNoteModal}
-                primaryColor={this.props.primaryColor} lightColor={this.props.lightColor} title={this.props.title}/>
+                saveNote={this.saveNote} title={this.props.title}
+                primaryColor={this.props.primaryColor} lightColor={this.props.lightColor}/>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.props.deleteMarkedDos}>
+          <TouchableOpacity onPress={this.deleteMarkedNotes}>
             <View style={styles.button}>
               <Icon name="delete" size={30} color="#FFFFFF" />
             </View>
@@ -65,6 +98,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteMarkedDos: () => dispatch(NoteActions.deleteMarkedDos()),
+    deleteMarkedSchedules: () => dispatch(NoteActions.deleteMarkedSchedules()),
+    deleteMarkedDelegates: () => dispatch(NoteActions.deleteMarkedDelegates()),
+    deleteMarkedEliminates: () => dispatch(NoteActions.deleteMarkedEliminates()),
+
+    saveDo: ({text, isMarkedDone}) => dispatch(NoteActions.saveDo({text, isMarkedDone})),
+    saveDelegate: ({text, isMarkedDone}) => dispatch(NoteActions.saveDelegate({text, isMarkedDone})),
+    saveSchedule: ({text, isMarkedDone}) => dispatch(NoteActions.saveSchedule({text, isMarkedDone})),
+    saveEliminate: ({text, isMarkedDone}) => dispatch(NoteActions.saveEliminate({text, isMarkedDone})),
   }
 }
 
